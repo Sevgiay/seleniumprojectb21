@@ -29,7 +29,7 @@ public class SeleniumTest {
         System.out.println("Current title of the page: "+driver.getTitle());
 
         //getting the current URL and storing  it into
-        String ccurretnURL = driver .getCurrentUrl();
+        String ccurretnURL = driver.getCurrentUrl();
 
         System.out.println("CurrentURL : "+ccurretnURL);
 

@@ -1,4 +1,4 @@
-package com.cybertek.tests.day4_findElement_checkboxes;
+package com.cybertek.tests.day4_findElements_checkboxes;
 
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -19,7 +19,7 @@ public class P1_Xpath_CssSelector {
         //3.Locate all the WebElements on the page using XPATH and/or CSS locator only
 
         //a-"Home" link
-        WebElement homeLink = driver.findElement(By.xpath("Home"));
+        WebElement homeLink = driver.findElement(By.xpath("//a[.='Home']"));
 
         //Locating the same link using class attribute's value
         //Webelement homeLink = driver.finElementh(By.xpath("//a[@class ='nav-link'));
@@ -37,11 +37,35 @@ public class P1_Xpath_CssSelector {
         //WebElementh emailLabel = driver.findElement(By.xpath("//label[.='E-mail]));
 
 
-        //d-E-mail input text
+        //d-E-mail input box
+        //Using syntax #1, tagName[attribute='value']
         WebElement emailInputBox = driver.findElement(By.cssSelector("input[type='text']"));
+        //Option #2: Using "name" attribute to locate the same web element
+        //WebElement emailInputBox = driver.findElement(By.cssSelector("input[name='email']));
+
         //e-"Retrieve password" button
+        //Location the button using #2 cssSelector syntax
+        //tagName.classValue
+        //tagName#classvalue
+
+        //location using id value
+       // WebElement retrievePasswordButton = driver.findElement(By.cssSelector("#form_submit"));
+
+        //locationnn using class value
+        WebElement retrievePasswordButton = driver.findElement(By.cssSelector("button.radius"));
+
         //f- "Powered by Cybertek School " text
+        WebElement footerText = driver.findElement(By.xpath("//div[@style='text-align: center;']"));
+
+
         //4- Verify all WebElements are displayed
+
+        if (homeLink.isDisplayed() && forgotPasswordHeader.isDisplayed() && emailLabel.isDisplayed() &&
+        emailInputBox.isDisplayed() && retrievePasswordButton.isDisplayed() && footerText.isDisplayed()){
+            System.out.println("All web elements are displayed.Verification passed!");
+        }else {
+            System.out.println("One or more of the web elements are not displayed.Verification Failed!");
+        }
 
     }
 }
